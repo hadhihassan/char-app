@@ -66,7 +66,7 @@ export const login = async (req, res) => {
             })
         }
 
-        generateToken(user._id);
+        generateToken(user._id, res);
 
         res.status(200).json({
             _id: user._id,
@@ -98,8 +98,7 @@ export const logout = (req, res) => {
 
 export const updateProfile = async (req, res) => {
     try {
-        console.log("here");
-        
+
         const { profilePic } = req.body;
         const userId = req.user._id
 
@@ -126,7 +125,7 @@ export const updateProfile = async (req, res) => {
     }
 }
 
-export const checkAuth = async () => {
+export const checkAuth = async (req, res) => {
     try {
         res.status(200).json(req.user)
     } catch (error) {

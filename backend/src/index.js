@@ -9,10 +9,11 @@ import authRoutes from './routes/auth.route.js';
 import messageRoutes from './routes/message.route.js';
 import { app, server } from './lib/socket.js';
 
-const PORT = process.env.PORT
 
 dotenv.config()
 
+const PORT = process.env.PORT
+const __dirname = path.resolve();
 
 app.use(
     cors({
